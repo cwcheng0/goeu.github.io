@@ -6,7 +6,11 @@
 </sitemap>
 <sitemap>
 <loc>https://www.goeu.com.tw/pinatubo.html</loc>
-<lastmod>2026-01-04T03:17:07+30:00</lastmod>
+<lastmod>2026-02-14T03:17:07+30:00</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.goeu.com.tw/pinatubo_time.html</loc>
+<lastmod>2026-02-14T03:17:07+30:00</lastmod>
 </sitemap>
 <sitemap>
 <loc>https://www.goeu.com.tw/about.html</loc>
@@ -57,3 +61,4 @@
 <lastmod>2025-01-25T03:17:07+30:00</lastmod>
 </sitemap>
 </sitemapindex>
+
