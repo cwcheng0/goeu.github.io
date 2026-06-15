@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【西澳洲.9天】深度探索之旅</title>
+    <style>
+        :root {
+            --primary-color: #1a5f7a;
+            --secondary-color: #f7b614;
+            --text-color: #333333;
+            --bg-light: #f8f9fa;
+            --border-color: #e9ecef;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #ffffff;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a5f7a 0%, #228b22 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--bg-light);
+            border-left: 5px solid var(--primary-color);
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .card.price-card {
+            border-left-color: var(--secondary-color);
+            background-color: #fffdf5;
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .price-card h2 {
+            color: #d97706;
+        }
+
+        .price-tag {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .exclude-list li::before {
+            content: "✕";
+            color: #ef4444;
+        }
+
+        .note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* Itinerary Timeline */
+        .itinerary-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .itinerary-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .day-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+
+        .day-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .day-number {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .day-title {
+            font-size: 1.2rem;
+            color: #111827;
+            font-weight: bold;
+            flex: 1;
+            margin-left: 1rem;
+        }
+
+        .day-content {
+            font-size: 1.05rem;
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .optional-box {
+            background-color: #f0fdf4;
+            border: 1px dashed #10b981;
+            padding: 0.8rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .optional-title {
+            color: #15803d;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .meal-info {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: #6b7280;
+            background: var(--bg-light);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        .meal-tag {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>【西澳洲.9天】深度探索之旅</h1>
+        <p>出發日期：2026年 7/5 ～ 7/13</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- 費用與細項 -->
+        <div class="info-grid">
+            <div class="card price-card">
+                <h2>團費說明</h2>
+                <div class="price-tag">NT$ 59,900 元 / 人</div>
+                <p style="color: #666; font-size: 0.95rem;">精緻行程，探索西澳獨特自然奇景與粉紅湖浪漫魅力。</p>
+            </div>
+
+            <div class="card">
+                <h2>費用包含</h2>
+                <ul>
+                    <li>每日精選早餐、精緻住宿（2人一室）</li>
+                    <li>專業英語司機與導遊服務、機場來回接送機</li>
+                    <li>行程內所有景點門票</li>
+                    <li>部份日期午餐及晚餐</li>
+                    <li>精選酒莊品酒體驗</li>
+                    <li>旅行業責任保險</li>
+                </ul>
+            </div>
+
+            <div class="card" style="grid-column: 1 / -1; border-left-color: #ef4444;">
+                <h2>費用不包含（需自理項目）</h2>
+                <ul class="exclude-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.5rem;">
+                    <li>機票費用自理 <span class="note">(大約 NT$ 23,000)</span></li>
+                    <li>部分日期的午餐與晚餐自理</li>
+                    <li>私人旅遊平安險及不便險</li>
+                    <li>澳洲電子簽證費用 <span class="note" style="display:inline; color:#1a5f7a;">(可協助代辦)</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 行程介紹 -->
+        <h2 class="itinerary-title">行程規劃 【西澳洲7天】+ 2</h2>
+
+        <!-- Day 1 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-number">DAY 1</span>
+                <div class="day-title">飛航啟程 ✈ 抵達珀斯 (Perth)</div>
+            </div>
+            <div class="day-content">
+                搭機抵達西澳第一大城——珀斯。專車接機送往酒店入住，隨後展開自由活動，調整時差，準備迎接精彩的澳洲之旅。
+            </div>
+            <div class="meal-info">
+                <span><span class="meal-tag">午餐：</span>自理</span>
+                <span><span class="meal-tag">晚餐：</span>自理</span>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-number">DAY 2</span>
+                <div class="day-title">珀斯 － 蘭斯林沙丘 － 龍蝦工廠 － 怪樹 － 卡爾巴里</div>
+            </div>
+            <div class="day-content">
+                前往著名的<strong>蘭斯林沙丘</strong>拍照留念，隨後前往<strong>龍蝦工廠</strong>。午後途經奇特的<strong>自然怪樹</strong>，傍晚抵達<strong>卡爾巴里 (Kalbarri)</strong>。
+                <div class="optional-box">
+                    <div class="optional-title">💡 自費加購推薦：</div>
+                    搭乘輕航機空中翱翔，鳥瞰浪漫無比的粉紅湖（Hutt Lagoon）絕美全景。
+                </div>
+            </div>
+            <div class="meal-info">
+                <span><span class="meal-tag">午餐：</span>自費</span>
+                <span><span class="meal-tag">晚餐：</span>自理</span>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-number">DAY 3</span>
+                <div class="day-title">卡爾巴里 － 粉紅湖地面遊覽 － 朱莉恩灣 － 尖峰石陣 － 珀斯</div>
+            </div>
+            <div class="day-content">
+                近距離親臨<strong>粉紅湖</strong>地面遊覽，感受大自然的粉紅魔力。隨後途經美麗的<strong>朱莉恩灣</strong>，前往造訪著名的<strong>尖峰石陣 (The Pinnacles)</strong>，讚嘆沙漠中的石灰岩奇觀。傍晚返回珀斯。
+            </div>
+            <div class="meal-info">
+                <span><span class="meal-tag">午餐：</span>自理</span>
+                <span><span class="meal-tag">晚餐：</span>包含</span>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-number">DAY 4</span>
+                <div class="day-title">珀斯一日自由行</div>
+            </div>
+            <div class="day-content">
+                今日全天自由活動，您可以漫步珀斯市區，或自由選擇參與以下精彩的自費自選行程：
+                <div class="optional-box">
+                    <div class="optional-title">✈ 自費精彩行程二選一：</div>
+                    • <strong>羅特內斯特島 (Rottnest Island) 一日遊</strong>：尋找地表最快樂的動物 Quokka 短尾矮袋鼠。<br>
+                    • <strong>羅特內斯特島陸地遊 + 飛機高空跳傘</strong>：挑戰自我，享受極限俯瞰美景。
+                </div>
+            </div>
+            <div class="meal-info">
+                <span><span class="meal-tag">午餐：</span>自理</span>
+                <span><span class="meal-tag">晚餐：</span>自理</span>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-number">DAY 5</span>
+                <div class="day-title">珀斯 － 巴瑟爾頓碼頭 － 瑪格麗特河小鎮 － 博納普森林 － 鐘乳石洞穴 － 奧古斯丁角燈塔 － 珀斯</div>
+            </div>
+            <div class="day-content">
+                漫步於知名的<strong>巴瑟爾頓長堤碼頭</strong>，隨後前往浪漫的<strong>瑪格麗特河小鎮</strong>。造訪壯麗的<strong>博納普森林</strong>與神祕的<strong>鐘乳石洞穴</strong>，最後參觀<strong>奧古斯丁角燈塔</strong>，傍晚返回珀斯。
+            </div>
+            <div class="meal-info">
+                <span><span class="meal-tag">午餐：</span>包含 (清淡午餐)</span>
+                <span><span class="meal-tag">晚餐：</span>包含</span>
+            </div>
+        </div>
+
+        <!-- Day 6 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-number">DAY 6</span>
+                <div class="day-title">珀斯 － 波浪岩 － 約克小鎮 － 珀斯</div>
+            </div>
+            <div class="day-content">
+                專車前往探訪享譽全球的大自然奇蹟——<strong>波浪岩 (Wave Rock)</strong>，欣賞歷經數億年風化而成的巨大波浪狀岩石。回程途經極具歷史風情的歐式風情<strong>約克小鎮 (York)</strong>。
+            </div>
+            <div class="meal-info">
+                <span><span class="meal-tag">午餐：</span>包含 (清淡午餐)</span>
+                <span><span class="meal-tag">晚餐：</span>包含</span>
+            </div>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-number">DAY 7</span>
+                <div class="day-title">珀斯 － 凱維森野生動物園 － 天鵝谷酒莊 － 弗里曼特特 ✈ 機場送機</div>
+            </div>
+            <div class="day-content">
+                前往<strong>凱維森野生動物園</strong>與澳洲特有動物近距離接觸。隨後造訪<strong>天鵝谷桑福德酒莊</strong>享受頂級品酒體驗。午後漫步於充滿英倫復古風情的港口小鎮<strong>弗里曼特 (Fremantle)</strong>。傍晚前專車送達機場，準備搭機。
+            </div>
+            <div class="meal-info">
+                <span><span class="meal-tag">午餐：</span>自理</span>
+                <span><span class="meal-tag">晚餐：</span>機上或自理</span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 波波旅行社 西澳洲深度旅遊 9天精選行程 | 祝您旅途愉快</p>
+    </footer>
+
+</body>
+</html>
