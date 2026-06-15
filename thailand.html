@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【尊榮泰國．純玩無購物5日】曼谷時尚五星、芭達雅雙離島奢華度假之旅</title>
+    <style>
+        :root {
+            --primary-color: #064e3b; /* 泰國熱帶翡翠綠 */
+            --secondary-color: #d97706; /* 質感泰式金 */
+            --accent-color: #059669;
+            --text-color: #1f2937;
+            --bg-light: #f4f7f5;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #ffffff;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #064e3b 0%, #0d9488 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2.5rem 1rem;
+        }
+
+        /* Selling Points */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-box {
+            background: #fff;
+            border: 2px solid var(--primary-color);
+            padding: 1.2rem;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--bg-light);
+            border-top: 4px solid var(--primary-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+
+        .card.price-card {
+            border-top-color: var(--secondary-color);
+            background-color: #fffbeb;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .price-card h2 {
+            color: var(--secondary-color);
+            border-bottom: none;
+        }
+
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #dc2626;
+            margin: 0.5rem 0;
+        }
+
+        .price-include {
+            font-size: 0.95rem;
+            color: #4b5563;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid #fcd34d;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            font-size: 1.05rem;
+        }
+
+        ul li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .exclude-list li::before {
+            content: "◦";
+            color: #9ca3af;
+        }
+
+        /* Itinerary Timeline */
+        .itinerary-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--primary-color);
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .itinerary-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .day-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .day-number {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .day-title {
+            font-size: 1.3rem;
+            color: #111827;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        .day-content {
+            font-size: 1.05rem;
+            color: #374151;
+            margin-bottom: 1.5rem;
+        }
+
+        .day-content strong {
+            color: var(--accent-color);
+        }
+
+        .hotel-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid var(--accent-color);
+            padding: 0.8rem 1.2rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .hotel-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 0.2rem;
+        }
+
+        .meal-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #4b5563;
+            background: var(--bg-light);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+        }
+
+        .meal-tag {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="tagline">純玩高品質・絕無購物站・不推自費</div>
+        <h1>【尊榮雙城．璀璨奢華5日】</h1>
+        <p>台灣遊客愛用的飯店、芭達雅私人遊艇雙離島、頂級泰式SPA饗宴</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- 三大品質保證 -->
+        <div class="features">
+            <div class="feature-box">🚫 全程無購物、無隨車團購</div>
+            <div class="feature-box">🏨 入住台灣遊客愛用的飯店</div>
+            <div class="feature-box">🍱 告別團體餐廳！享用道地名店</div>
+        </div>
+        
+        <!-- 費用與細項 -->
+        <div class="info-grid">
+            <div class="card">
+                <h2>精選禮遇（費用包含）</h2>
+                <ul>
+                    <li><strong>優質航班：</strong>台灣直飛曼谷來回定期航班機票與兩地機場稅。</li>
+                    <li><strong>奢華住宿：</strong>2晚曼谷市區飯店、2晚芭達雅度假酒店（兩人一室）。</li>
+                    <li><strong>頂級饗宴：</strong>全程精選泰式網美餐廳、經典海鮮料理、高空景觀晚宴。</li>
+                    <li><strong>專屬交通：</strong>全行程採用高規格豪華冷氣旅遊巴士，舒適尊榮。</li>
+                    <li><strong>門票全包：</strong>行程中所列所有景點門票、遊艇出海費用、泰式古法按摩2小時。</li>
+                    <li><strong>安全保障：</strong>旅行業責任保險、特別加碼海外突發疾病醫療險。</li>
+                </ul>
+            </div>
+
+            <div class="card price-card">
+                <h2>尊榮心動價</h2>
+                <p style="color: #6b7280; font-size: 1rem;">一分錢一分貨，市場最高規格</p>
+                <div class="price-tag">NT$ 32,900 <span style="font-size: 1.2rem;">元起 / 人</span></div>
+                <div class="price-include">含全程司機導遊服務費、無隱藏自費</div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 3rem; border-top-color: #9ca3af;">
+            <h2>費用不包含項目</h2>
+            <ul class="exclude-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.5rem;">
+                <li>泰國觀光簽證費用。(目前不需簽證)</li>
+                <li>護照新辦或過期更換之規費。</li>
+                <li>個人瘋狂購物、酒吧消費及純私人各項支出。</li>
+                <li>床頭小費、行李小費等泰國當地習慣性禮貌小費。</li>
+            </ul>
+        </div>
+
+        <!-- 行程介紹 -->
+        <h2 class="itinerary-title">精選曼谷+芭達雅 5 日深度行程</h2>
+
+        <!-- Day 1 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-number">DAY 1</span>
+                <div class="day-title">台北 ✈ 曼谷市區 － 鄭王廟（精美泰服體驗）－ 精緻湄南河璀璨夜遊晚宴</div>
+            </div>
+            <div class="day-content">
+                搭乘精選航班飛往天使之城「曼谷」。抵達後專車接往網美最愛<strong>鄭王廟</strong>，特別安排<strong>換上華麗泰國傳統服飾</strong>，在古老佛塔前留下絕美身影。傍晚登上豪華遊船暢遊湄南河，一邊欣賞曼谷迷人夜景，一邊享用精緻國際自助百匯。
+            </div>
+            <div class="hotel-box">
+                <div class="hotel-title">🏨 預定下榻飯店：</div>
+                曼谷 @Graph Hotel、 Maple Hotel、 Ibis styles Bangkok Ratchada 或同級 (捷運站旁, 台灣遊客愛用)
+            </div>
+            <div class="meal-info">
+                <span><span class="meal-tag">早餐：</span>機上精緻簡餐</span>
+                <span><span class="meal-tag">午餐：</span>米其林推薦泰式料理</span>
+                <span><span class="meal-tag">晚餐：</span>璀璨湄南河奢華遊船晚宴</span>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-number">DAY 2</span>
+                <div class="day-title">曼谷 － 網美聖地：綠山國家野生動物園 － 芭達雅度假天堂 － 奢華正宗泰式古法按摩（2小時）</div>
+            </div>
+            <div class="day-content">
+                前往亞洲最大的<strong>綠山國家野生動物園</strong>，搭乘遊園車近距離接觸可愛動物。隨後專車前往東方夏威夷「芭達雅」。特別安排長達兩小時的<strong>頂級泰式古法按摩</strong>，徹底放鬆全身經絡。晚餐前往芭達雅知名的海邊網美餐廳，吹著海風享用海鮮饗宴。
+            </div>
+            <div class="hotel-box">
+                <div class="hotel-title">🏨 預定下榻飯店：</div>
+                芭達雅 M Hotel 或 同級 (台灣遊客愛用)
+            </div>
+            <div class="meal-info">
+                <span><span class="meal-tag">早餐：</span>飯店內豪華自助餐</span>
+                <span><span class="meal-tag">午餐：</span>園區內精緻午餐</span>
+                <span><span class="meal-tag">晚餐：</span>The Glass House 海景海鮮餐廳</span>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-number">DAY 3</span>
+                <div class="day-title">私人豪華遊艇出海：格蘭島與薩島雙島巡航（海釣、浮潛、SUP立槳）－ 蒂芬妮人妖秀尊榮VIP席</div>
+            </div>
+            <div class="day-content">
+                今日包下<strong>私人豪華雙體遊艇</strong>優雅出海，避開吵雜的大眾團體。前往純淨的<strong>格蘭島與薩島</strong>，您可以自由體驗浮潛探訪珊瑚礁、體驗海釣或在蒂芬妮藍的海面上玩SUP立槳。晚上安排世界前十大必看秀場——<strong>蒂芬妮人妖秀</strong>，並升等 VIP 貴賓席。
+            </div>
+            <div class="hotel-box">
+                <div class="hotel-title">🏨 預定下榻飯店：</div>
+                芭達雅 M Hotel 或 同級
+            </div>
+            <div class="meal-info">
+                <span><span class="meal-tag">早餐：</span>飯店內豪華自助餐</span>
+                <span><span class="meal-tag">午餐：</span>遊艇海鮮BBQ精緻餐盒</span>
+                <span><span class="meal-tag">晚餐：</span>泰式手抓海鮮風味餐</span>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-number">DAY 4</span>
+                <div class="day-title">芭達雅 － 返回曼谷 － 四面佛祈福 － 暹羅商圈自由探索+高空酒吧頂級之夜</div>
+            </div>
+            <div class="day-content">
+                返回曼谷，前往全泰最靈驗的<strong>四面佛</strong>參拜祈福。下午留給您足夠的時間在 <strong>Big C、Siam Paragon、Central World 潮流商圈</strong>自由探索，享受真正沒有壓力的純購物時光。夜晚特別贈送前往知名五星飯店<strong>高空酒吧（Rooftop Bar）</strong>享用飲料一杯，俯瞰曼谷無敵璀璨夜景。
+            </div>
+            <div class="hotel-box">
+                <div class="hotel-title">🏨 預定下榻飯店：</div>
+                曼谷 @Graph Hotel、 Maple Hotel、 Ibis styles Bangkok Ratchada 或同級 (捷運站旁)
+            </div>
+            <div class="meal-info">
+                <span><span class="meal-tag">早餐：</span>飯店內豪華自助餐</span>
+                <span><span class="meal-tag">午餐：</span>建興酒家經典咖哩螃蟹風味</span>
+                <span><span class="meal-tag">晚餐：</span>方便逛街，敬請自理</span>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-number">DAY 5</span>
+                <div class="day-title">曼谷市區 ✈ 台北（期待下一次的奢華假期）</div>
+            </div>
+            <div class="day-content">
+                在五星飯店慵懶地享用完奢華早餐後，您可以利用最後的時間在飯店內享受無邊際泳池或設施。隨後由專車接往機場，搭乘豪華客機返回台北，結束這趟充實、放鬆且尊榮的泰國純玩之旅。
+            </div>
+            <div class="meal-info">
+                <span><span class="meal-tag">早餐：</span>飯店內豪華自助餐</span>
+                <span><span class="meal-tag">午餐：</span>機上精緻簡餐</span>
+                <span><span class="meal-tag">晚餐：</span>溫暖的家</span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 泰國曼谷芭達雅頂級純玩尊榮假期 | 專業操作．品質保證</p>
+    </footer>
+
+</body>
+</html>
