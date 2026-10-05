@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清邁四季酒店 Four Seasons Resort Chiang Mai | PoPo 波波旅遊 奢華慢活特輯</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-emerald: #1b4d3e;
+            --emerald-dark: #0a261d;
+            --emerald-light: #2c6b57;
+            --gold-accent: #c6a052;
+            --gold-light: #f3e5c8;
+            --gold-hover: #dbb35f;
+            --sand-bg: #fcf9f2;
+            --sand-card: #f5efe6;
+            --card-bg: #ffffff;
+            --text-dark: #222222;
+            --text-muted: #666666;
+            --border-color: #e5dfd5;
+            --font-serif: 'Noto Serif TC', 'Cinzel', serif;
+            --font-sans: 'Noto Sans TC', sans-serif;
+            --font-display: 'Cinzel', 'Noto Serif TC', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--sand-bg);
+            color: var(--text-dark);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation Header */
+        .header-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 38, 29, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(198, 160, 82, 0.3);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .brand-logo-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand-logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.35rem;
+            color: var(--gold-accent);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .brand-tag {
+            background: rgba(198, 160, 82, 0.18);
+            color: var(--gold-light);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid var(--gold-accent);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(10, 38, 29, 0.45), rgba(10, 38, 29, 0.8)), 
+                        url('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/HotelView_20260929-3.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 950px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            letter-spacing: 5px;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 22px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .hero-desc {
+            font-size: 1.18rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 35px auto;
+            color: #e5e5e5;
+            line-height: 1.8;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .badge-item {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-tagline {
+            font-family: var(--font-display);
+            color: var(--gold-accent);
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.3rem;
+            color: var(--primary-emerald);
+            margin-bottom: 16px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background-color: var(--gold-accent);
+            margin: 14px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .section-intro {
+            color: var(--text-muted);
+            max-width: 780px;
+            margin: 16px auto 0 auto;
+            font-size: 1.08rem;
+            line-height: 1.8;
+        }
+
+        /* Resort Overview Grid */
+        .overview-box {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 45px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            margin-bottom: 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .overview-img-wrapper {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .overview-img-wrapper img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .overview-img-wrapper:hover img {
+            transform: scale(1.04);
+        }
+
+        .overview-text h3 {
+            font-family: var(--font-serif);
+            font-size: 1.9rem;
+            color: var(--primary-emerald);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .overview-text p {
+            color: #4a4a4a;
+            margin-bottom: 18px;
+            font-size: 1.03rem;
+            line-height: 1.8;
+        }
+
+        /* Official Weekly Schedule Widget (From HotelEvents_20260929.jpg) */
+        .schedule-section {
+            background: var(--sand-card);
+            border-radius: 24px;
+            padding: 50px 40px;
+            margin-bottom: 90px;
+            border: 1px solid var(--border-color);
+        }
+
+        .schedule-badge-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .comp-badge {
+            background: var(--primary-emerald);
+            color: var(--gold-light);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid var(--gold-accent);
+        }
+
+        .schedule-table-wrapper {
+            overflow-x: auto;
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.92rem;
+            min-width: 850px;
+        }
+
+        .schedule-table th, .schedule-table td {
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .schedule-table th {
+            background: var(--emerald-dark);
+            color: var(--gold-accent);
+            font-family: var(--font-display);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .schedule-table tr:hover td {
+            background: #fcf9f2;
+        }
+
+        .event-highlight {
+            color: var(--primary-emerald);
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .event-free {
+            background: #e8f3ee;
+            color: var(--primary-emerald);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-left: 5px;
+            border: 1px solid rgba(27, 77, 62, 0.3);
+        }
+
+        /* Activity Cards (3x2 Grid) */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 35px;
+            margin-bottom: 90px;
+        }
+
+        .activity-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(27, 77, 62, 0.14);
+        }
+
+        .activity-img-box {
+            position: relative;
+            height: 260px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .activity-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .activity-card:hover .activity-img-box img {
+            transform: scale(1.08);
+        }
+
+        .activity-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary-emerald);
+            color: #ffffff;
+            font-size: 0.8rem;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-weight: 500;
+            border: 1px solid var(--gold-accent);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .activity-body {
+            padding: 28px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-time {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            color: var(--gold-accent);
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .activity-title {
+            font-family: var(--font-serif);
+            font-size: 1.45rem;
+            color: var(--primary-emerald);
+            margin-bottom: 14px;
+            line-height: 1.35;
+        }
+
+        .activity-desc {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.75;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .activity-footer-box {
+            background: var(--sand-bg);
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            border-left: 3px solid var(--gold-accent);
+            color: #555555;
+        }
+
+        /* Dining & Fruit Station Section */
+        .dining-section {
+            background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--primary-emerald) 100%);
+            color: #ffffff;
+            border-radius: 28px;
+            padding: 85px 40px;
+            margin-bottom: 90px;
+            box-shadow: 0 15px 40px rgba(10, 38, 29, 0.2);
+        }
+
+        .dining-section .section-title {
+            color: #ffffff;
+        }
+
+        .dining-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 45px;
+        }
+
+        .dining-photo-wall {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .dining-photo-item {
+            position: relative;
+            height: 210px;
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .dining-photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .dining-photo-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .dining-info h3 {
+            font-family: var(--font-serif);
+            font-size: 2.1rem;
+            color: var(--gold-accent);
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+
+        .dining-info p {
+            font-size: 1.05rem;
+            color: #e2e2e2;
+            margin-bottom: 22px;
+            line-height: 1.8;
+        }
+
+        .fruit-station-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(198, 160, 82, 0.35);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .fruit-station-head {
+            font-family: var(--font-serif);
+            color: var(--gold-light);
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fruit-chips-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .fruit-badge {
+            background: rgba(255, 255, 255, 0.16);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Scenery & Pool Section */
+        .scenery-section {
+            margin-bottom: 90px;
+        }
+
+        .scenery-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            margin-top: 45px;
+        }
+
+        .scenery-card {
+            position: relative;
+            height: 420px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+
+        .scenery-card.sub {
+            height: 200px;
+        }
+
+        .scenery-card-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .scenery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .scenery-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .scenery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(10, 38, 29, 0.9));
+            color: #ffffff;
+            padding: 25px;
+        }
+
+        .scenery-caption h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--gold-accent);
+            margin-bottom: 6px;
+        }
+
+        .scenery-caption p {
+            font-size: 0.9rem;
+            color: #dddddd;
+        }
+
+        /* FIT Traveler Guide Box */
+        .fit-guide-box {
+            background: var(--sand-card);
+            border-radius: 24px;
+            padding: 55px 45px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 90px;
+        }
+
+        .fit-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .fit-info-card {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--primary-emerald);
+        }
+
+        .fit-icon {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .fit-info-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--primary-emerald);
+            margin-bottom: 12px;
+        }
+
+        .fit-info-card p {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+        }
+
+        /* Timeline Box */
+        .timeline-wrapper {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 40px;
+            margin-top: 45px;
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-header {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--primary-emerald);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .timeline-list {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .timeline-row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .timeline-stamp {
+            background: var(--primary-emerald);
+            color: var(--gold-accent);
+            font-family: var(--font-display);
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            min-width: 130px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .timeline-detail {
+            background: var(--sand-bg);
+            padding: 14px 22px;
+            border-radius: 12px;
+            flex-grow: 1;
+            font-size: 0.98rem;
+            color: #333333;
+        }
+
+        /* Photo Gallery Lightbox Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content-box {
+            position: relative;
+            max-width: 1000px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .modal-img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .modal-caption {
+            color: #ffffff;
+            margin-top: 15px;
+            font-size: 1.05rem;
+            font-family: var(--font-serif);
+            text-align: center;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            color: #ffffff;
+            font-size: 2.2rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s;
+        }
+
+        .modal-close-btn:hover {
+            color: var(--gold-accent);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--emerald-dark);
+            color: #888888;
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 0.92rem;
+            border-top: 1px solid rgba(198, 160, 82, 0.25);
+        }
+
+        .footer-brand {
+            font-family: var(--font-display);
+            color: var(--gold-accent);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .footer-nav-links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav-links a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-nav-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 900px) {
+            .hero-title { font-size: 2.3rem; }
+            .overview-box, .dining-grid, .scenery-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .timeline-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .timeline-stamp { align-self: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <div class="brand-logo-group">
+            <a href="https://goeu.com.tw" class="brand-logo">GOEU PoPo 波波旅遊旅遊</a>
+            <span class="brand-tag">清邁奢華自由行 FIT 四季飯店開箱</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#overview">渡假村簡介</a></li>
+            <li><a href="#schedule">活動時間表</a></li>
+            <li><a href="#activities">深度體驗</a></li>
+            <li><a href="#dining">KHAO 美食</a></li>
+            <li><a href="#fit-guide">自由行攻略</a></li>
+        </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">Mae Rim Valley · Lanna Sanctuary</div>
+            <h1 class="hero-title">清邁四季酒店<br>Four Seasons Resort Chiang Mai</h1>
+            <p class="hero-desc">隱身美林谷地的泰北蘭納王朝莊園，親身體驗有機梯田播種、水牛沐浴照護與悠遠的農夫黃昏巡行</p>
+            <div class="hero-badges">
+                <span class="badge-item">🌾 傳統藍衫泥潭插秧</span>
+                <span class="badge-item">🐂 下午粉紅水牛洗澡</span>
+                <span class="badge-item">🗣️ 泰語與蘭納文化課</span>
+                <span class="badge-item">🌅 農夫黃昏巡行禮儀</span>
+                <span class="badge-item">🐘 象神點燈祈福儀式</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Section 1: Resort Overview -->
+        <section id="overview">
+            <div class="overview-box">
+                <div class="overview-img-wrapper" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/HotelView_20260929-3.jpg', '清邁四季酒店無邊際梯田美景')">
+                    <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/HotelView_20260929-3.jpg" alt="清邁四季酒店無邊際梯田美景">
+                </div>
+                <div class="overview-text">
+                    <h3>坐落美林谷地的蘭納文化農耕莊園</h3>
+                    <p>位於清邁美林區（Mae Rim Valley）的 **清邁四季酒店**，將頂級奢華酒店體驗與泰北有機農業完美結合。莊園圍繞著生機蓬勃的翠綠梯田與湖泊而建，一座座蘭納（Lanna）王朝高腳屋與私人 Villa 散落於巨木林蔭之間。</p>
+                    <p>針對追求慢活、沉浸文化與放鬆身心的自由行（FIT）旅客，清邁四季酒店提供免費且豐富的在地體驗，讓每一次駐足都成為觸動心靈的自然詩篇。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Official Weekly Activity Schedule Table -->
+        <section id="schedule" class="schedule-section">
+            <div class="section-header">
+                <div class="section-tagline">Official Weekly Activities</div>
+                <h2 class="section-title">渡假村每日體驗活動時刻表 (Activities at a Glance)</h2>
+                <p class="section-intro">基於渡假村官方活動告示牌，住客均可免費參與多項經典文化與農事活動</p>
+            </div>
+
+            <div class="schedule-badge-row">
+                <span class="comp-badge">★ 住客專屬免費體驗 (Complimentary Activity)</span>
+                <span class="comp-badge">🌿 傳統農作與動物互動</span>
+                <span class="comp-badge">🧘 晨光瑜伽與身心舒緩</span>
+            </div>
+
+            <div class="schedule-table-wrapper">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>時間 (Time)</th>
+                            <th>週一 (MON)</th>
+                            <th>週二 (TUE)</th>
+                            <th>週三 (WED)</th>
+                            <th>週四 (THU)</th>
+                            <th>週五 (FRI)</th>
+                            <th>週六 (SAT)</th>
+                            <th>週日 (SUN)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>07:00</strong></td>
+                            <td colspan="7">晨光瑜珈 Sunrise Yoga (at Yoga Barn, 60m)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>08:30</strong></td>
+                            <td>泰拳 Muay Thai</td>
+                            <td>心肺網球</td>
+                            <td>體態雕塑</td>
+                            <td>三效健身</td>
+                            <td>能量巡航</td>
+                            <td>泰拳 Muay Thai</td>
+                            <td>心肺網球</td>
+                        </tr>
+                        <tr>
+                            <td><strong>11:00</strong></td>
+                            <td>自然步道<span class="event-free">免費</span></td>
+                            <td><span class="event-highlight">稻田插秧</span><span class="event-free">免費</span></td>
+                            <td><span class="event-highlight">泰語文化課</span><span class="event-free">免費</span></td>
+                            <td><span class="event-highlight">稻田插秧</span><span class="event-free">免費</span></td>
+                            <td>自然步道<span class="event-free">免費</span></td>
+                            <td><span class="event-highlight">泰語文化課</span><span class="event-free">免費</span></td>
+                            <td><span class="event-highlight">稻田插秧</span><span class="event-free">免費</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>14:30</strong></td>
+                            <td colspan="7"><span class="event-highlight">水牛洗澡體驗 Buffalo Bathing (at Chaan Baan, 45m)</span><span class="event-free">免費</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>17:00</strong></td>
+                            <td colspan="7"><span class="event-highlight">農夫黃昏巡行 Farmer's Parade (from Lobby, 15m)</span><span class="event-free">免費</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>17:45</strong></td>
+                            <td colspan="7"><span class="event-highlight">象神點燈祈福 Ganesha Blessing (at Ganesha Sala, 20m)</span><span class="event-free">免費</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 3: Resort Activity Detail Cards -->
+        <section id="activities">
+            <div class="section-header">
+                <div class="section-tagline">Signature Experiences</div>
+                <h2 class="section-title">渡假村經典靈魂體驗</h2>
+                <p class="section-intro">穿上藍衫下田播種、幫水牛刷背、吟唱巡行樂曲，深度感受泰北農耕文化</p>
+            </div>
+
+            <div class="activities-grid">
+
+                <!-- Activity 1: Rice Planting -->
+                <div class="activity-card">
+                    <div class="activity-img-box" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/HotelView_RiceGrowing_20260929-7.jpg', '傳統藍衫梯田插秧體驗')">
+                        <span class="activity-tag">農作體驗</span>
+                        <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/HotelView_RiceGrowing_20260929-7.jpg" alt="傳統藍衫梯田插秧體驗">
+                    </div>
+                    <div class="activity-body">
+                        <div class="activity-time">11:00 AM (二 / 四 / 日) ★ 免費</div>
+                        <h3 class="activity-title">🌾 藍衫泥潭梯田插秧體驗</h3>
+                        <p class="activity-desc">住客將換上泰國傳統農夫藍衫（Mor Hom）與遮陽草帽，踏入渡假村有機稻田。在專業農夫指導下，親自將綠色稻苗插植於溫暖泥潭中，深刻體驗土壤與生命交融的樂趣。</p>
+                        <div class="activity-footer-box">
+                            <strong>活動細節：</strong> 地點於 Chaan Baan 涼亭，提供防滑鞋與完整衣服換裝服務。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 2: Buffalo Bathing -->
+                <div class="activity-card">
+                    <div class="activity-img-box" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/Buffalo_20260929-4.jpg', '粉紅水牛親密洗澡與照護')">
+                        <span class="activity-tag">動物照護</span>
+                        <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/Buffalo_20260929-4.jpg" alt="粉紅水牛親密洗澡與照護">
+                    </div>
+                    <div class="activity-body">
+                        <div class="activity-time">02:30 PM (每日開課) ★ 免費</div>
+                        <h3 class="activity-title">🐂 粉紅水牛親密洗澡與照護</h3>
+                        <p class="activity-desc">渡假村養育著極具靈性的白化水牛（Albino Buffalo）。午後在 Chaan Baan 湖畔，住客可拿著長柄刷幫水牛刷背洗澡、進行青草餵食與溫柔互動，非常受自由行旅客與親子喜愛。</p>
+                        <div class="activity-footer-box">
+                            <strong>活動細節：</strong> 在池畔近距離刷洗，感受水牛的溫順與天然生態。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 3: Thai Language & Culture -->
+                <div class="activity-card">
+                    <div class="activity-img-box" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/Lobby_20260928-1.jpg', '泰語與泰北蘭納文化微課堂')">
+                        <span class="activity-tag">語言文化</span>
+                        <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/Lobby_20260928-1.jpg" alt="泰語與泰北蘭納文化微課堂">
+                    </div>
+                    <div class="activity-body">
+                        <div class="activity-time">11:00 AM (三 / 六) ★ 免費</div>
+                        <h3 class="activity-title">🗣️ 「Oo Kum Mueang」泰語與文化課</h3>
+                        <p class="activity-desc">跟隨四季酒店的文化大使學習實用的日常泰語問候（如 Sawasdee, Khop Khun）與清邁在地的蘭納方言（Oo Kum Mueang），同時學習泰國禮貌的合十禮儀（Wai）。</p>
+                        <div class="activity-footer-box">
+                            <strong>活動細節：</strong> 於通風優雅的湖畔涼亭下舉辦，輕鬆融入泰國文化底蘊。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 4: Farmer's Sunset Parade -->
+                <div class="activity-card">
+                    <div class="activity-img-box" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/HotelView_Rice_20260930-5.jpg', '農夫黃昏巡行儀式')">
+                        <span class="activity-tag">夕陽儀式</span>
+                        <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/HotelView_Rice_20260930-5.jpg" alt="農夫黃昏巡行儀式">
+                    </div>
+                    <div class="activity-body">
+                        <div class="activity-time">05:00 PM (每日舉行) ★ 免費</div>
+                        <h3 class="activity-title">🌅 農夫黃昏巡行禮儀 (Parade)</h3>
+                        <p class="activity-desc">每日傍晚夕陽落下前，渡假村的全體農夫會肩扛農具、列隊從 Lobby 出發繞行梯田。他們一邊敲擊樂器一邊唱著清亮的泰北民謠，象徵一日辛勤工作的圓滿結束。</p>
+                        <div class="activity-footer-box">
+                            <strong>活動細節：</strong> 住客可跟隨隊伍一同巡行漫步，感受莊嚴而歡快的夕陽禮讚。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 5: Ganesha Blessing -->
+                <div class="activity-card">
+                    <div class="activity-img-box" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/GaneshaBlessing_20260929-4.jpg', '象神點燈祈福儀式')">
+                        <span class="activity-tag">靈修祈福</span>
+                        <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/GaneshaBlessing_20260929-4.jpg" alt="象神點燈祈福儀式">
+                    </div>
+                    <div class="activity-body">
+                        <div class="activity-time">05:45 PM (每日舉行) ★ 免費</div>
+                        <h3 class="activity-title">🐘 象神點燈祈福儀式 (Ganesha)</h3>
+                        <p class="activity-desc">在專屬的象神涼亭（Ganesha Sala），工作人員會點燃燭火、獻上萬壽菊花環與泰式點心。住客可以在此靜心祈禱，祈求旅途平安、事業成功與心靈平安。</p>
+                        <div class="activity-footer-box">
+                            <strong>活動細節：</strong> 體驗古老印度教與泰國信仰融合的祥和典禮。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 6: Sunrise Yoga -->
+                <div class="activity-card">
+                    <div class="activity-img-box" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai//HotelViewPool_20260929-3.jpg', '晨光梯田瑜伽')">
+                        <span class="activity-tag">身心舒緩</span>
+                        <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/HotelViewPool_20260929-3.jpg" alt="晨光梯田瑜伽">
+                    </div>
+                    <div class="activity-body">
+                        <div class="activity-time">07:00 AM (每日舉行)</div>
+                        <h3 class="activity-title">🧘 晨光梯田瑜伽 (Sunrise Yoga)</h3>
+                        <p class="activity-desc">位於專屬 Yoga Barn 涼亭，面向晨霧繚繞的翠綠梯田。在導師引導下伸展肢體、進行深呼吸吐納，聆聽鳥鳴與水流聲，展開神清氣爽的一天。</p>
+                        <div class="activity-footer-box">
+                            <strong>活動細節：</strong> 提供專業瑜伽墊與毛巾，享受大自然芬多精靈修。
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 4: Dining & Fruit Station -->
+        <section id="dining" class="dining-section">
+            <div class="section-header">
+                <div class="section-tagline">Exquisite Culinary Art</div>
+                <h2 class="section-title">KHAO 景觀餐廳與客製化水果服務</h2>
+                <p class="section-intro" style="color: #e0e0e0;">在俯瞰美林谷地的露台上，享受頂級名廚料理與現點現剝的熱帶水果饗宴</p>
+            </div>
+
+            <div class="dining-grid">
+                <div class="dining-photo-wall">
+                    <div class="dining-photo-item" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/Breakfast_20260929-1.jpg', '熱帶水果桌邊點單服務')">
+                        <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/Breakfast_20260929-1.jpg" alt="熱帶水果桌邊點單服務">
+                    </div>
+                    <div class="dining-photo-item" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/Breakfast_20260929-2.jpg', 'KHAO 餐廳精緻早餐點心')">
+                        <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/Breakfast_20260929-2.jpg" alt="KHAO 餐廳精緻早餐點心">
+                    </div>
+                    <div class="dining-photo-item" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/BreakfastMenu_20260929-9.jpg', 'Fruit Station 點單卡')">
+                        <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/BreakfastMenu_20260929-9.jpg" alt="Fruit Station 點單卡">
+                    </div>
+                    <div class="dining-photo-item" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/Breakfast_20260929-8.jpg', 'KHAO 露台戶外景觀')">
+                        <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/Breakfast_20260929-8.jpg" alt="KHAO 露台戶外景觀">
+                    </div>
+                </div>
+
+                <div class="dining-info">
+                    <h3>Fruit Station 桌邊現點現切尊榮服務</h3>
+                    <p>在 **KHAO Restaurant** 享用早餐，最受賓客推崇的莫過於獨一無二的 **Fruit Station** 水果桌邊服務。服務人員會推著擺滿當季現採鮮果的竹籃餐車來到桌前，依據您的勾選現剝切盤。</p>
+                    <p>無論是多汁甜美的清邁芒果、珍貴的水果之后山竹、紅毛丹、泰國柑橘或現剖百香果，皆為新鮮直送。</p>
+
+                    <div class="fruit-station-card">
+                        <div class="fruit-station-head">
+                            <span>🥭 KHAO Fruit Station 現點水果菜單品項：</span>
+                        </div>
+                        <div class="fruit-chips-group">
+                            <span class="fruit-badge">Thai Orange (泰國柑橘)</span>
+                            <span class="fruit-badge">Passion Fruit (百香果)</span>
+                            <span class="fruit-badge">Yellow / Green Mango (黃/綠芒果)</span>
+                            <span class="fruit-badge">Mangosteen (山竹)</span>
+                            <span class="fruit-badge">Rambutan (紅毛丹)</span>
+                            <span class="fruit-badge">Avocado (酪梨)</span>
+                            <span class="fruit-badge">Papaya (木瓜)</span>
+                            <span class="fruit-badge">Dragon Fruit (火龍果)</span>
+                        </div>
+                    </div>
+                </div>s
+            </div>
+        </section>
+
+        <!-- Section 5: Resort Architecture, Pool & Villas -->
+        <section class="scenery-section">
+            <div class="section-header">
+                <div class="section-tagline">Architectural Masterpiece</div>
+                <h2 class="section-title">翡翠梯田泳池與蘭納 Villa 閣樓</h2>
+                <p class="section-intro">水天一色的無邊際池畔、極致私密的 Villa 私人露台，營造清邁最尊貴的度假場域</p>
+            </div>
+
+            <div class="scenery-grid">
+                <div class="scenery-card" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/HotelViewPool_20260929-3.jpg', '雙層無邊際綠水泳池')">
+                    <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/HotelViewPool_20260929-3.jpg" alt="雙層無邊際綠水泳池">
+                    <div class="scenery-caption">
+                        <h4>雙層梯田無邊際游泳池</h4>
+                        <p>翡翠綠池水與遠方稻田連成一線，配有頂級躺椅與冰飲服務</p>
+                    </div>
+                </div>
+                <div class="scenery-card-group">
+                    <div class="scenery-card sub" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/RoomView_20260928-15.jpg', 'Villa 私人景觀露台')">
+                        <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/RoomView_20260928-15.jpg" alt="Villa 私人景觀露台">
+                        <div class="scenery-caption">
+                            <h4>Villa 私人景觀露台</h4>
+                            <p>遠眺山谷晨霧與涼亭建築</p>
+                        </div>到
+                    </div>
+                    <div class="scenery-card sub" onclick="openLightbox('https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/HotelView_Rice_20260930-4.jpg', '黃昏稻田水池倒影')">
+                        <img src="https://goeu.com.tw/image/hotel/FourSeasonsChiangMai/HotelView_Rice_20260930-4.jpg" alt="黃昏稻田水池倒影">
+                        <div class="scenery-caption">
+                            <h4>稻田水池夕陽倒影</h4>
+                            <p>感受泰北靜謐悠遠的田園歲月</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: FIT Traveler Guide -->
+        <section id="fit-guide" class="fit-guide-box">
+            <div class="section-header">
+                <div class="section-tagline">FIT Traveler Essentials</div>
+                <h2 class="section-title">自由行 (FIT) 玩家慢活攻略與實用建議</h2>
+                <p class="section-intro">規劃屬於您的清邁慢活節奏，享受無拘無束的蘭納假期</p>
+            </div>
+
+            <div class="fit-cards-grid">
+
+                <div class="fit-info-card">
+                    <span class="fit-icon">🚘</span>
+                    <h4>交通抵達建議</h4>
+                    <p>渡假村位於清邁西北方的美林區（Mae Rim），距離清邁國際機場（CNX）或古城區約 **35-45 分鐘車程**。建議預訂飯店專車、Grab 或安排全日包車接送。</p>
+                </div>
+
+                <div class="fit-info-card">
+                    <span class="fit-icon">🌿</span>
+                    <h4>推薦停留天數</h4>
+                    <p>渡假村本身即為一座綠意盎然的文化植物園，建議安排 **3 天 2 夜至 4 天 3 夜** 住宿，全天留在莊園內參加免費課程、游泳與放空，無須趕排市區景點。</p>
+                </div>
+
+                <div class="fit-info-card">
+                    <span class="fit-icon">📸</span>
+                    <h4>活動穿著建議</h4>
+                    <p>參加插秧體驗時渡假村會提供藍衫與膠鞋；參加晨間水牛洗澡或泰語課建議穿著棉麻輕便服裝。午後陽光充足，記得攜帶草帽與墨鏡。</p>
+                </div>
+
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline-wrapper">
+                <h3 class="timeline-header">🌿 渡假村完美一日慢活行程建議</h3>
+                <div class="timeline-list">
+                    <div class="timeline-row">
+                        <div class="timeline-stamp">7:00 AM</div>
+                        <div class="timeline-detail"><strong>晨光瑜珈 (Sunrise Yoga)：</strong> 於 Yoga Barn 涼亭聽著鳥鳴舒展全身筋骨。</div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-stamp">8:30 AM</div>
+                        <div class="timeline-detail"><strong>KHAO 餐廳早餐：</strong> 享用桌邊現切水果與經典泰式熱食。</div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-stamp">11:00 AM</div>
+                        <div class="timeline-detail"><strong>藍衫梯田插秧 / 泰語課：</strong> 換上 Mor Hom 農服親手播種或學習日常泰語。</div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-stamp">2:30 PM</div>
+                        <div class="timeline-detail"><strong>粉紅水牛洗澡體驗：</strong> 在 Chaan Baan 湖畔幫可愛水牛刷背與餵食。</div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-stamp">5:00 PM</div>
+                        <div class="timeline-detail"><strong>農夫黃昏巡行 (Parade)：</strong> 隨農夫隊伍吟唱民謠繞行梯田，歡送夕陽。</div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-stamp">5:45 PM</div>
+                        <div class="timeline-detail"><strong>象神點燈祈福 (Ganesha Blessing)：</strong> 於象神亭獻花點燈，祈求旅途平安。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Lightbox Modal Container -->
+    <div id="lightboxModal" class="modal-overlay" onclick="closeLightbox(event)">
+        <div class="modal-content-box">
+            <span class="modal-close-btn" onclick="closeLightboxForce()">&times;</span>
+            <img id="modalImg" class="modal-img" src="" alt="放大預覽圖片">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">PoPo 波波旅遊</div>
+        <p>專業自由行規劃 · 清邁四季酒店奢華慢活 · Four Seasons Resort Chiang Mai</p>
+        <div class="footer-nav-links">
+            <a href="https://goeu.com.tw">GOEU 首頁</a>
+            <a href="FourSeasonsChiangMai_overview.html">渡假村簡介</a>
+            <a href="FourseasonsChiangMaiSchedule.jpg">活動時刻表</a>
+            <a href="KhaoDining.html">KHAO 美食</a>
+            <a href="ChiangMai_fitguide.html">自由行攻略</a>
+        </div>
+        <p style="margin-top: 15px; font-size: 0.8rem; color: #777777;">© 2026 GOEU Travel. All Rights Reserved. 本網頁為旅遊專題介紹，無提供直接線上預訂服務。</p>
+    </footer>
+
+    <!-- Lightbox Script -->
+    <script>
+        function openLightbox(imgUrl, captionText) {
+            const modal = document.getElementById('lightboxModal');
+            const modalImg = document.getElementById('modalImg');
+            const modalCaption = document.getElementById('modalCaption');
+            
+            modalImg.src = imgUrl;
+            modalCaption.innerText = captionText;
+            modal.classList.add('active');
+        }
+
+        function closeLightbox(event) {
+            if (event.target.id === 'lightboxModal') {
+                document.getElementById('lightboxModal').classList.remove('active');
+            }
+        }
+
+        function closeLightboxForce() {
+            document.getElementById('lightboxModal').classList.remove('active');
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightboxForce();
+            }
+        });
+    </script>
+
+</body>
+</html>
