@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泰國清邁 加山遺產高爾夫球俱樂部 | Gassan Legacy Golf Club</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Zen+Old+Mincho:wght@700;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        golf: {
+                            dark: '#0a231c',
+                            deep: '#12382c',
+                            emerald: '#1b4d3e',
+                            light: '#2d6a4f',
+                            accent: '#d4af37',
+                            gold: '#c5a059',
+                            cream: '#f9f6f0',
+                            sand: '#ede6d6'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif TC"', '"Zen Old Mincho"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #f3e7e1 0%, #d4af37 50%, #aa7c11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(10,35,28,0.75) 0%, rgba(10,35,28,0.4) 50%, rgba(10,35,28,0.95) 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .dark-glass-card {
+            background: rgba(18, 56, 44, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-golf-cream text-gray-800 font-sans antialiased selection:bg-golf-accent selection:text-white" x-data="galleryApp()">
+
+    <!-- 頂部導覽列 Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-golf-dark/95 backdrop-blur-md border-b border-golf-gold/20 text-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo / Title -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full bg-golf-accent/20 border border-golf-accent flex items-center justify-center text-golf-accent group-hover:bg-golf-accent group-hover:text-golf-dark transition-colors duration-300">
+                    <i class="fa-solid font-bold text-lg fa-golf-ball-tee"></i>
+                </div>
+                <div>
+                    <span class="block font-serif text-lg sm:text-xl font-bold tracking-wider text-white">Gassan Legacy Golf Club</span>
+                    <span class="block text-xs text-golf-gold tracking-widest uppercase">泰國清邁 · 加山遺產高爾夫球俱樂部</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="#about" class="hover:text-golf-gold transition-colors duration-200">球場簡介</a>
+                <a href="#features" class="hover:text-golf-gold transition-colors duration-200">四大特色</a>
+                <a href="#hole-strategy" class="hover:text-golf-gold transition-colors duration-200">球洞攻略</a>
+                <a href="#resort" class="hover:text-golf-gold transition-colors duration-200">渡假住宿</a>
+                <a href="#dining" class="hover:text-golf-gold transition-colors duration-200">會館餐飲</a>
+                <a href="#gallery" class="hover:text-golf-gold transition-colors duration-200">實景相冊</a>
+                <a href="#info" class="hover:text-golf-gold transition-colors duration-200">球場資訊</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-golf-gold hover:text-white focus:outline-none p-2">
+                <i class="fa-solid text-2xl" :class="mobileMenuOpen ? 'fa-xmark' : 'fa-bars'"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div x-show="mobileMenuOpen" x-transition @click.away="mobileMenuOpen = false" class="md:hidden bg-golf-deep border-b border-golf-gold/30 px-6 pt-4 pb-6 space-y-4">
+            <a href="#about" @click="mobileMenuOpen = false" class="block text-white hover:text-golf-gold py-1">球場簡介</a>
+            <a href="#features" @click="mobileMenuOpen = false" class="block text-white hover:text-golf-gold py-1">四大特色</a>
+            <a href="#hole-strategy" @click="mobileMenuOpen = false" class="block text-white hover:text-golf-gold py-1">球洞攻略</a>
+            <a href="#resort" @click="mobileMenuOpen = false" class="block text-white hover:text-golf-gold py-1">渡假住宿</a>
+            <a href="#dining" @click="mobileMenuOpen = false" class="block text-white hover:text-golf-gold py-1">會館餐飲</a>
+            <a href="#gallery" @click="mobileMenuOpen = false" class="block text-white hover:text-golf-gold py-1">實景相冊</a>
+            <a href="#info" @click="mobileMenuOpen = false" class="block text-white hover:text-golf-gold py-1">球場資訊</a>
+        </div>
+    </header>
+
+    <!-- Hero 視覺旗艦區 -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-golf-dark">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="./images/GolfView_20261001-1.jpg" alt="Gassan Legacy Golf Club Main View" class="w-full h-full object-cover object-center scale-105 transform animate-pulse duration-[10000ms]">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white py-24">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-golf-gold/20 border border-golf-gold/40 text-golf-gold text-xs sm:text-sm font-semibold tracking-widest uppercase mb-6 backdrop-blur-md">
+                <i class="fa-solid fa-award"></i>
+                <span>Schmidt-Curley 操刀大膽重塑 · 泰北頂級 18 洞水挑戰賽道</span>
+            </div>
+            
+            <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6 gold-gradient-text">
+                清邁湖光山色間的極致揮桿
+            </h1>
+            
+            <p class="max-w-3xl mx-auto text-base sm:text-xl text-gray-200 font-light leading-relaxed mb-10">
+                Gassan Legacy Golf Club 坐落於泰北清邁與奔縣的壯麗山谷中。幾乎洞洞環水的戰略佈局、大膽的沙坑造型與島嶺果嶺，專為追求挑戰與極致視覺享樂的高爾夫愛好者打造。
+            </p>
+
+            <!-- Key Quick Stats -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto pt-6 border-t border-white/15">
+                <div class="p-4 rounded-xl bg-golf-deep/60 border border-golf-gold/20 backdrop-blur-md">
+                    <span class="block text-2xl sm:text-3xl font-extrabold text-golf-gold font-serif">18 洞</span>
+                    <span class="text-xs text-gray-300">標準錦標賽場地</span>
+                </div>
+                <div class="p-4 rounded-xl bg-golf-deep/60 border border-golf-gold/20 backdrop-blur-md">
+                    <span class="block text-2xl sm:text-3xl font-extrabold text-golf-gold font-serif">PAR 72</span>
+                    <span class="text-xs text-gray-300">全長 6,852 碼</span>
+                </div>
+                <div class="p-4 rounded-xl bg-golf-deep/60 border border-golf-gold/20 backdrop-blur-md">
+                    <span class="block text-2xl sm:text-3xl font-extrabold text-golf-gold font-serif">水障礙</span>
+                    <span class="text-xs text-gray-300">極致水岸進攻策略</span>
+                </div>
+                <div class="p-4 rounded-xl bg-golf-deep/60 border border-golf-gold/20 backdrop-blur-md">
+                    <span class="block text-2xl sm:text-3xl font-extrabold text-golf-gold font-serif">渡假村</span>
+                    <span class="text-xs text-gray-300">泰式蘭納奢華住宿</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll down indicator -->
+        <a href="#about" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 text-white/70 hover:text-golf-gold transition-colors animate-bounce">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </a>
+    </section>
+
+    <!-- 球場簡介 About Section -->
+    <section id="about" class="py-20 sm:py-28 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column Text -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-block px-3 py-1 bg-golf-emerald/10 text-golf-emerald font-semibold text-xs rounded tracking-widest uppercase">
+                        ABOUT GASSAN LEGACY
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-golf-dark leading-snug">
+                        經典重塑：全球知名 Schmidt-Curley 團隊的大膽傑作
+                    </h2>
+                    <p class="text-gray-650 leading-relaxed text-base sm:text-lg">
+                        加山遺產高爾夫球俱樂部（Gassan Legacy Golf Club）前身為 Gassan Lake City。2014 年球場重金聘請國際知名高爾夫球場設計事務所 <strong class="text-golf-emerald font-semibold">Schmidt-Curley Design</strong> 進行全面性的翻修與重新定義。
+                    </p>
+                    <p class="text-gray-650 leading-relaxed text-base">
+                        設計師以全新的水系佈局、寬闊卻深具陷阱的球道、動態起伏的果嶺以及造型張力十足的沙坑，打造出泰北地區極具話題性與極致挑戰度的名門賽道。無論您是追求低桿突破的高手，或是熱愛極致風景的球友，這裡都能為您帶來震撼的揮桿經歷。
+                    </p>
+
+                    <!-- Feature Bullet Points -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-gray-100">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-golf-gold/15 text-golf-gold flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-water"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-golf-dark text-sm">湖泊環繞挑戰</h4>
+                                <p class="text-xs text-gray-500">水障礙遍佈各洞，考驗落點控制</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-golf-gold/15 text-golf-gold flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-tree"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-golf-dark text-sm">泰北熱帶林木</h4>
+                                <p class="text-xs text-gray-500">椰林與湖光山色相映成趣</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column Photo Collage -->
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="overflow-hidden rounded-2xl shadow-lg group">
+                            <img src="./images/GolfLobby_20261001.jpg" alt="Gassan Legacy Clubhouse Entrance" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="p-2 bg-golf-dark text-white text-xs text-center font-medium">壯麗會館門廊與白石階梯</div>
+                        </div>
+                        <div class="overflow-hidden rounded-2xl shadow-lg group">
+                            <img src="./images/GolfView_20261001-5.jpg" alt="Gassan Legacy Fairway View" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="p-2 bg-golf-dark text-white text-xs text-center font-medium">如鏡水面倒映椰林綠意</div>
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <div class="overflow-hidden rounded-2xl shadow-lg group">
+                            <img src="./images/GolfSign_20261001.jpg" alt="Golf Sign Landmark" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="p-2 bg-golf-dark text-white text-xs text-center font-medium">Gassan Legacy 經典巨石地標</div>
+                        </div>
+                        <div class="overflow-hidden rounded-2xl shadow-lg group">
+                            <img src="./images/GolfView_20261001-3.jpg" alt="Green and Water Hazard" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="p-2 bg-golf-dark text-white text-xs text-center font-medium">果嶺水障圍繞之精緻佈局</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 四大球場特色 Features Section -->
+    <section id="features" class="py-20 bg-golf-dark text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-golf-gold text-xs font-semibold tracking-widest uppercase">WHY GASSAN LEGACY</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2 gold-gradient-text">球友讚嘆的四大揮桿亮點</h2>
+                <p class="text-gray-300 text-base mt-3">無可比擬的球場設計、無微不至的服務細節與舒適渡假享受</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Feature 1 -->
+                <div class="dark-glass-card rounded-2xl p-6 hover:border-golf-gold transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-2xl bg-golf-gold/20 border border-golf-gold flex items-center justify-center text-golf-gold text-2xl mb-6">
+                        <i class="fa-solid fa-water"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-3 text-white">水水相連戰略考驗</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                        近乎每一洞皆與湖泊、溪流相伴。球道視覺效果極具張力，強烈考驗開球精準度與突破心理障礙的果敢。
+                    </p>
+                    <span class="text-xs text-golf-gold font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-circle-info"></i> 水岸長廊與島嶺挑戰
+                    </span>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="dark-glass-card rounded-2xl p-6 hover:border-golf-gold transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-2xl bg-golf-gold/20 border border-golf-gold flex items-center justify-center text-golf-gold text-2xl mb-6">
+                        <i class="fa-solid fa-drafting-compass"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-3 text-white">大師級球道設計</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                        由 Schmidt-Curley 重塑設計，結合大面積的露天沙坑群、巧妙的球道坡度及高速度波浪果嶺，極具國際賽事水準。
+                    </p>
+                    <span class="text-xs text-golf-gold font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-circle-info"></i> Schmidt-Curley 經典作品
+                    </span>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="dark-glass-card rounded-2xl p-6 hover:border-golf-gold transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-2xl bg-golf-gold/20 border border-golf-gold flex items-center justify-center text-golf-gold text-2xl mb-6">
+                        <i class="fa-solid fa-person-golf"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-3 text-white">專業桿弟與高爾夫球車</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                        提供親切專業的一對一桿弟服務，輔以保養完備的雙人電動球車，讓您在泰北燦爛陽光下輕鬆愉快打完全場。
+                    </p>
+                    <span class="text-xs text-golf-gold font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-circle-info"></i> 全載球車與貼心桿弟
+                    </span>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="dark-glass-card rounded-2xl p-6 hover:border-golf-gold transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-2xl bg-golf-gold/20 border border-golf-gold flex items-center justify-center text-golf-gold text-2xl mb-6">
+                        <i class="fa-solid fa-hotel"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-3 text-white">泰式蘭納風渡假會館</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                        飯店渡假村直通球場，配備景觀泳池、放鬆桑拿 Spa、精緻餐廳與舒適客房，下樓即可開球，實現終極渡假享受。
+                    </p>
+                    <span class="text-xs text-golf-gold font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-circle-info"></i> 一站式高爾夫假期
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 球洞攻略與戰略分析 Hole Strategy Section -->
+    <section id="hole-strategy" class="py-20 bg-golf-sand/30 border-y border-golf-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-golf-emerald text-xs font-semibold tracking-widest uppercase">TACTICAL HOLE ANALYSIS</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-golf-dark mt-2">經典球洞實戰攻略解密</h2>
+                <p class="text-gray-600 text-base mt-2">根據真實球場地圖與實景拍攝，深入剖析考驗球友智慧與技巧的魔鬼洞</p>
+            </div>
+
+            <!-- Detailed Hole 10 Breakdown Card -->
+            <div class="glass-card rounded-3xl p-6 sm:p-10 shadow-2xl overflow-hidden mb-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Hole Map Image -->
+                    <div class="lg:col-span-6 relative group">
+                        <div class="overflow-hidden rounded-2xl border-2 border-golf-gold/40 shadow-xl bg-golf-dark">
+                            <img src="./images/GolfMap_20261001.jpg" alt="Hole 10 Map Gassan Legacy" class="w-full h-auto object-contain cursor-pointer hover:scale-105 transition-transform duration-500" @click="openModal('./images/GolfMap_20261001.jpg', '第 10 洞球洞戰略圖 (Hole 10 Map)', 'Par 5 / 579 Yards - 詳細分析落點與水障礙')">
+                        </div>
+                        <div class="absolute top-4 left-4 bg-golf-dark/90 text-golf-gold px-3 py-1 rounded-lg text-xs font-bold border border-golf-gold/40 backdrop-blur-md">
+                            <i class="fa-solid fa-map-location-dot mr-1"></i> 球洞實測全景地圖
+                        </div>
+                    </div>
+
+                    <!-- Hole Strategy Text -->
+                    <div class="lg:col-span-6 space-y-5">
+                        <div class="flex items-center space-x-3">
+                            <span class="px-3 py-1 bg-golf-emerald text-white rounded-lg font-serif font-bold text-lg">HOLE 10</span>
+                            <span class="px-3 py-1 bg-golf-gold/20 text-golf-dark rounded-lg text-sm font-semibold">PAR 5 · 579 YARDS</span>
+                        </div>
+                        
+                        <h3 class="font-serif text-2xl font-bold text-golf-dark">「長洞考驗：右側水岸長廊與沙坑群」</h3>
+                        
+                        <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+                            第 10 洞是 Gassan Legacy 後九洞極具代表性的長洞。從 TEE 台出發，整條球道右側皆為延伸水障礙，左側則有樹林與出界界線（OB）。
+                        </p>
+
+                        <div class="space-y-3 pt-2">
+                            <div class="flex items-start space-x-3 bg-white/80 p-3 rounded-xl border border-golf-gold/20">
+                                <div class="w-7 h-7 rounded-full bg-golf-emerald text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</div>
+                                <div>
+                                    <h4 class="font-bold text-golf-dark text-sm">第一桿（開球策略）</h4>
+                                    <p class="text-xs text-gray-600">開球需瞄準球道偏左位置，避開右側蜿蜒的水域落點，為第二桿創造最佳視野。</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3 bg-white/80 p-3 rounded-xl border border-golf-gold/20">
+                                <div class="w-7 h-7 rounded-full bg-golf-emerald text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</div>
+                                <div>
+                                    <h4 class="font-bold text-golf-dark text-sm">第二桿（過渡與跨水）</h4>
+                                    <p class="text-xs text-gray-600">第二桿必須精確計算距離，球道中段設有戰略沙坑，強攻需承擔水障風險，保守佈局方為上策。</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3 bg-white/80 p-3 rounded-xl border border-golf-gold/20">
+                                <div class="w-7 h-7 rounded-full bg-golf-emerald text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">3</div>
+                                <div>
+                                    <h4 class="font-bold text-golf-dark text-sm">攻果嶺（進攻策略）</h4>
+                                    <p class="text-xs text-gray-600">果嶺前方與左右均有沙坑嚴密守護，切球與推桿需特別注意果嶺斜幅坡度。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Additional Course Views Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="overflow-hidden rounded-2xl shadow-md bg-white group cursor-pointer" @click="openModal('./images/GolfView_20261001-2.jpg', '球道景致 - 寬闊落點區', 'Schmidt-Curley 特色的波浪型球道與精緻沙坑')">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./images/GolfView_20261001-2.jpg" alt="Fairway View" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-golf-dark text-sm">寬闊球道與沙坑佈局</h4>
+                        <p class="text-xs text-gray-500 mt-1">視野開闊，但策略落點極具挑戰</p>
+                    </div>
+                </div>
+
+                <div class="overflow-hidden rounded-2xl shadow-md bg-white group cursor-pointer" @click="openModal('./images/GolfView_20261001-8.jpg', '果嶺攻防 - 湖畔景觀', '果嶺前的水障與堅硬草坪保養')">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./images/GolfView_20261001-8.jpg" alt="Green and Water View" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-golf-dark text-sm">水邊果嶺進攻挑戰</h4>
+                        <p class="text-xs text-gray-500 mt-1">考驗鐵桿精準度與抗壓能力</p>
+                    </div>
+                </div>
+
+                <div class="overflow-hidden rounded-2xl shadow-md bg-white group cursor-pointer" @click="openModal('./images/GolfNightView_20261001.jpg', '球會夜景 - 沉靜湖光', '暮色降臨下的 Gassan Legacy 絕美燈火與倒影')">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./images/GolfNightView_20261001.jpg" alt="Golf Club Night View" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-golf-dark text-sm">暮色湖畔夜景倒影</h4>
+                        <p class="text-xs text-gray-500 mt-1">打完球後在會館享受寧靜時光</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 渡假住宿與會館設施 Resort Living Section -->
+    <section id="resort" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Image Gallery Slider/Grid -->
+                <div class="lg:col-span-7 grid grid-cols-2 gap-4">
+                    <div class="overflow-hidden rounded-2xl shadow-lg cursor-pointer group" @click="openModal('./images/Room_20261001-1.jpg', '奢華渡假客房', '溫潤泰國柚木傢俱，提供極致放息空間')">
+                        <img src="./images/Room_20261001-1.jpg" alt="Resort Room" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="p-2 bg-golf-dark text-white text-xs text-center">雙床尊榮客房</div>
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-lg cursor-pointer group" @click="openModal('./images/RoomOutside_20261001-1.jpg', '中庭椰林游泳池', '椰林環繞的露天泳池與休閒陽台')">
+                        <img src="./images/RoomOutside_20261001-1.jpg" alt="Resort Pool" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="p-2 bg-golf-dark text-white text-xs text-center">中庭景觀游泳池</div>
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-lg cursor-pointer group" @click="openModal('./images/GolfToolArea_20261001-1.jpg', '出包房與球具服務區', '專業服務團隊協助搬運與整理球袋')">
+                        <img src="./images/GolfToolArea_20261001-1.jpg" alt="Pro Tool Area" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="p-2 bg-golf-dark text-white text-xs text-center">專業球袋服務區</div>
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-lg cursor-pointer group" @click="openModal('./images/GolfCar_20261001-1.jpg', '球車隊伍與出車區', '整齊完備的電動高爾夫球車隊')">
+                        <img src="./images/GolfCar_20261001-1.jpg" alt="Golf Buggy Fleet" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="p-2 bg-golf-dark text-white text-xs text-center">專屬球車車隊</div>
+                    </div>
+                </div>
+
+                <!-- Right Description -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-block px-3 py-1 bg-golf-gold/20 text-golf-dark font-semibold text-xs rounded tracking-widest uppercase">
+                        RESORT & AMENITIES
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-golf-dark">
+                        揮桿後的頂級放鬆：泰式渡假會館與客房
+                    </h2>
+                    <p class="text-gray-650 leading-relaxed text-base">
+                        Gassan Legacy Golf Club 不僅是一座錦標賽級球場，更是一座全方位的奢華渡假村。球友可直接入住球場內渡假飯店，享受舒適放鬆的泰式蘭納風格客房。
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-golf-emerald/10 text-golf-emerald flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-bed"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-golf-dark text-base">泰式柚木奢華客房</h4>
+                                <p class="text-xs text-gray-500 mt-0.5">配備獨立空調、乾濕分離衛浴、液晶電視與高品質床寢，給您最佳睡眠質量。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-golf-emerald/10 text-golf-emerald flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-person-swimming"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-golf-dark text-base">中庭棕櫚露天泳池</h4>
+                                <p class="text-xs text-gray-500 mt-0.5">打完球後可在清涼的池水中悠游放鬆，或在岸邊躺椅享受泰北微風與日光浴。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-golf-emerald/10 text-golf-emerald flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-clipboard-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-golf-dark text-base">嚴謹專業的球隊服務</h4>
+                                <p class="text-xs text-gray-500 mt-0.5">出包房提供專業球袋保管、清洗與清潔作業，確保您的球具時刻保持最佳狀態。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 精緻餐飲與美食 Dining Section -->
+    <section id="dining" class="py-20 bg-golf-cream border-t border-golf-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-golf-emerald text-xs font-semibold tracking-widest uppercase">GASTRONOMY EXPERIENCE</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-golf-dark mt-2">景觀餐廳與豐盛自助早餐</h2>
+                <p class="text-gray-600 text-base mt-2">採光明亮的景觀餐廳，為您的揮桿之旅提供能量與道地美食享樂</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md group cursor-pointer" @click="openModal('./images/Breakfast_20261001-1.jpg', '景觀餐廳用餐區', '寬闊明亮的餐廳空間，可邊享用美食邊欣賞園林美景')">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./images/Breakfast_20261001-1.jpg" alt="Dining Room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-golf-dark text-sm">寬敞明亮用餐空間</h4>
+                        <p class="text-xs text-gray-500 mt-1">典雅桌椅與綠意景觀窗</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md group cursor-pointer" @click="openModal('./images/Breakfast_20261001-2.jpg', '豐盛自助餐吧台', '現煮泰式美饌、熱食與熱騰騰粥品點心')">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./images/Breakfast_20261001-2.jpg" alt="Breakfast Buffet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-golf-dark text-sm">現煮熱食與異國料理</h4>
+                        <p class="text-xs text-gray-500 mt-1">豐富的多國口味早餐吧</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md group cursor-pointer" @click="openModal('./images/Breakfast_20261001-3.jpg', '新鮮水果與飲品吧', '泰國熱帶新鮮水果、現磨咖啡與特調飲料')">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./images/Breakfast_20261001-3.jpg" alt="Fresh Fruits and Drinks" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-golf-dark text-sm">泰國熱帶鮮果與飲料</h4>
+                        <p class="text-xs text-gray-500 mt-1">補充維他命與揮桿精力</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md group cursor-pointer" @click="openModal('./images/Breakfast_20261001-4.jpg', '溫馨餐飲氛圍', '專業親切的餐飲服務團隊')">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./images/Breakfast_20261001-4.jpg" alt="Restaurant Hospitality" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-golf-dark text-sm">尊榮貼心餐飲服務</h4>
+                        <p class="text-xs text-gray-500 mt-1">開啟完美泰北高爾夫日</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 實景相冊 Filterable Photo Gallery -->
+    <section id="gallery" class="py-20 bg-golf-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-golf-gold text-xs font-semibold tracking-widest uppercase">REAL PHOTO GALLERY</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2 gold-gradient-text">球友實景照片特輯</h2>
+                <p class="text-gray-350 text-base mt-2">點擊照片可開啟高解析度放大檢視與詳細繁體中文說明</p>
+
+                <!-- Filter Category Buttons -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mt-8">
+                    <button @click="activeFilter = 'all'" :class="activeFilter === 'all' ? 'bg-golf-gold text-golf-dark font-bold' : 'bg-golf-deep text-gray-300 hover:text-white border border-golf-gold/30'" class="px-4 py-2 rounded-xl text-xs sm:text-sm transition-all duration-200">
+                        全部照片
+                    </button>
+                    <button @click="activeFilter = 'course'" :class="activeFilter === 'course' ? 'bg-golf-gold text-golf-dark font-bold' : 'bg-golf-deep text-gray-300 hover:text-white border border-golf-gold/30'" class="px-4 py-2 rounded-xl text-xs sm:text-sm transition-all duration-200">
+                        球場風光
+                    </button>
+                    <button @click="activeFilter = 'resort'" :class="activeFilter === 'resort' ? 'bg-golf-gold text-golf-dark font-bold' : 'bg-golf-deep text-gray-300 hover:text-white border border-golf-gold/30'" class="px-4 py-2 rounded-xl text-xs sm:text-sm transition-all duration-200">
+                        會館與客房
+                    </button>
+                    <button @click="activeFilter = 'dining'" :class="activeFilter === 'dining' ? 'bg-golf-gold text-golf-dark font-bold' : 'bg-golf-deep text-gray-300 hover:text-white border border-golf-gold/30'" class="px-4 py-2 rounded-xl text-xs sm:text-sm transition-all duration-200">
+                        精緻餐飲
+                    </button>
+                    <button @click="activeFilter = 'facilities'" :class="activeFilter === 'facilities' ? 'bg-golf-gold text-golf-dark font-bold' : 'bg-golf-deep text-gray-300 hover:text-white border border-golf-gold/30'" class="px-4 py-2 rounded-xl text-xs sm:text-sm transition-all duration-200">
+                        球車與出包
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Image Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <template x-for="(img, idx) in filteredImages" :key="idx">
+                    <div class="dark-glass-card rounded-2xl overflow-hidden group cursor-pointer border border-golf-gold/20 hover:border-golf-gold transition-all duration-300 transform hover:-translate-y-1" @click="openModal(img.src, img.title, img.desc)">
+                        <div class="h-48 overflow-hidden relative">
+                            <img :src="img.src" :alt="img.title" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
+                                <i class="fa-solid fa-magnifying-glass-plus text-2xl text-golf-gold"></i>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold text-white text-xs sm:text-sm truncate" x-text="img.title"></h4>
+                            <p class="text-gray-400 text-xs truncate mt-0.5" x-text="img.desc"></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 地理位置與資訊 Location & Info Section -->
+    <section id="info" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-block px-3 py-1 bg-golf-emerald/10 text-golf-emerald font-semibold text-xs rounded tracking-widest uppercase">
+                        LOCATION & DETAILS
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-golf-dark">
+                        球場詳細資訊與交通概況
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed text-base">
+                        Gassan Legacy Golf Club 位於泰國清邁近郊的奔縣（Lamphun），離清邁國際機場（CNX）與清邁市中心僅需約 35 至 45 分鐘車程。交通便利，是前往泰北進行高爾夫巡迴之旅的必訪優質球場。
+                    </p>
+
+                    <!-- Information Cards -->
+                    <div class="space-y-3 pt-2">
+                        <div class="p-4 rounded-xl bg-golf-sand/40 border border-golf-gold/20 flex items-start space-x-4">
+                            <i class="fa-solid fa-location-dot text-golf-emerald text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-golf-dark text-sm">官方地址 (Address)</h4>
+                                <p class="text-xs text-gray-700 mt-1 font-mono">88 Moo 7 Ban Thi, Lamphun 51180 Thailand</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-golf-sand/40 border border-golf-gold/20 flex items-start space-x-4">
+                            <i class="fa-solid fa-flag text-golf-emerald text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-golf-dark text-sm">球場規格 (Course Specification)</h4>
+                                <p class="text-xs text-gray-700 mt-1">18 洞 (Holes) · Par 72 · 全長 6,852 碼 · 設有練習場 (Driving Range)</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-golf-sand/40 border border-golf-gold/20 flex items-start space-x-4">
+                            <i class="fa-solid fa-phone text-golf-emerald text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-golf-dark text-sm">連絡電話 (Contact Phone)</h4>
+                                <p class="text-xs text-gray-700 mt-1 font-mono">+66 (0) 53 921888</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-golf-sand/40 border border-golf-gold/20 flex items-start space-x-4">
+                            <i class="fa-solid fa-concierge-bell text-golf-emerald text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-golf-dark text-sm">會館設施 (Facilities)</h4>
+                                <p class="text-xs text-gray-700 mt-1">Pro Shop 賣店、球具租借、男女淋浴間、景觀餐廳、渡假飯店、戶外泳池、按摩 Spa</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Notice Board Image -->
+                <div class="lg:col-span-6">
+                    <div class="glass-card rounded-3xl p-6 border-2 border-golf-gold/30 shadow-xl space-y-4">
+                        <div class="overflow-hidden rounded-2xl">
+                            <img src="./images/IMG_20260930_170901.jpg" alt="Official Information Notice Board" class="w-full h-auto object-cover cursor-pointer" @click="openModal('./images/IMG_20260930_170901.jpg', '球場渡假村服務公告牌', '官方記載地址：88 Moo 7 Ban Thi, Lamphun 51180 Thailand / Tel: 053-921888')">
+                        </div>
+                        <div class="text-center p-2 bg-golf-dark text-golf-gold rounded-xl text-xs font-semibold">
+                            <i class="fa-solid fa-circle-check mr-1"></i> 現場拍攝官方資訊公告牌
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer 頁尾 -->
+    <footer class="bg-golf-dark text-white border-t border-golf-gold/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <div class="flex items-center justify-center space-x-3">
+                <div class="w-8 h-8 rounded-full bg-golf-gold/20 border border-golf-gold flex items-center justify-center text-golf-gold">
+                    <i class="fa-solid fa-golf-ball-tee"></i>
+                </div>
+                <span class="font-serif text-xl font-bold tracking-wider gold-gradient-text">Gassan Legacy Golf Club</span>
+            </div>
+
+            <p class="text-xs text-gray-400 max-w-xl mx-auto leading-relaxed">
+                本網頁專為高爾夫愛好者介紹泰國清邁加山遺產高爾夫球俱樂部（Gassan Legacy Golf Club）。展現 Schmidt-Curley 操刀之水障礙球場設計與渡假體驗。
+            </p>
+
+            <div class="text-xs text-gray-500 pt-4 border-t border-white/10">
+                &copy; Gassan Legacy Golf Club Presentation. Optimized for <a href="https://goeu.com.tw" target="_blank" rel="noopener" class="text-golf-gold hover:underline">goeu.com.tw</a>.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Photo Modal (Lightbox) -->
+    <div x-show="modalOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md" @keydown.escape.window="modalOpen = false">
+        
+        <!-- Close Button -->
+        <button @click="modalOpen = false" class="absolute top-4 right-4 text-white hover:text-golf-gold text-3xl p-2 z-50 focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="relative max-w-5xl w-full bg-golf-dark rounded-2xl overflow-hidden border border-golf-gold/40 shadow-2xl" @click.away="modalOpen = false">
+            <div class="max-h-[75vh] bg-black flex items-center justify-center overflow-hidden">
+                <img :src="modalImg" :alt="modalTitle" class="max-h-[75vh] w-auto object-contain mx-auto">
+            </div>
+            <div class="p-6 bg-golf-deep text-white border-t border-golf-gold/30">
+                <h3 class="font-serif text-xl font-bold text-golf-gold" x-text="modalTitle"></h3>
+                <p class="text-gray-300 text-sm mt-2 leading-relaxed" x-text="modalDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alpine.js Application Logic -->
+    <script>
+        function galleryApp() {
+            return {
+                mobileMenuOpen: false,
+                activeFilter: 'all',
+                modalOpen: false,
+                modalImg: '',
+                modalTitle: '',
+                modalDesc: '',
+                images: [
+                    { src: './images/GolfView_20261001-1.jpg', title: '湖畔綠洲與壯麗水障礙', desc: '椰林聳立襯托極致球道景色，高難度水障考驗落點。', category: 'course' },
+                    { src: './images/GolfView_20261001-2.jpg', title: '波浪型球道與精緻沙坑', desc: 'Schmidt-Curley 經典設計風格，提供視覺與策略雙重享受。', category: 'course' },
+                    { src: './images/GolfView_20261001-3.jpg', title: '果嶺周邊環水防守', desc: '考驗鐵桿過水擊球的精準度與抗壓勇氣。', category: 'course' },
+                    { src: './images/GolfView_20261001-5.jpg', title: '倒映藍天與椰林之水色', desc: '清澈湖面倒映泰北陽光，提供絕美揮桿體驗。', category: 'course' },
+                    { src: './images/GolfView_20261001-8.jpg', title: '蜿蜒水道與果嶺銜接', desc: '進攻果嶺需精確計算距離與避開水障陷阱。', category: 'course' },
+                    { src: './images/GolfView_20261001-10.jpg', title: '陽光灑落的光滑果嶺', desc: '草坪保養極佳，速度均勻，推桿極具挑戰樂趣。', category: 'course' },
+                    { src: './images/GolfView_20261001-14.jpg', title: '丘陵自然地形賽道', desc: '高低起伏的球道伏擊線與遼闊視野。', category: 'course' },
+                    { src: './images/GolfView_20261001-17.jpg', title: '水岸挑戰洞實景', desc: '泰北經典 18 洞水戰錦標賽場地代表景觀。', category: 'course' },
+                    { src: './images/GolfNightView_20261001.jpg', title: '暮色沉靜湖畔夜景', desc: '會館燈火倒映於平靜湖面，令人心曠神怡。', category: 'course' },
+                    { src: './images/GolfMap_20261001.jpg', title: '第 10 洞球洞戰略圖 (Hole 10)', desc: 'Par 5 / 579 Yards，右側長廊水障與沙坑防守攻略。', category: 'course' },
+                    
+                    { src: './images/GolfSign_20261001.jpg', title: 'Gassan Legacy 經典地標巨石', desc: '雄偉大氣的球俱樂部門口地標巨石牌樓。', category: 'resort' },
+                    { src: './images/GolfLobby_20261001.jpg', title: '白石階梯與泰式會館門廊', desc: '典雅壯麗的泰北蘭納傳統涼亭風格建築。', category: 'resort' },
+                    { src: './images/Room_20261001-1.jpg', title: '典雅雙床渡假套房', desc: '溫潤柚木傢俱與泰式布藝，提供放鬆休憩空間。', category: 'resort' },
+                    { src: './images/Room_20261001-2.jpg', title: '寬敞採光衛浴空間', desc: '獨立乾濕分離淋浴設施與精緻洗沐備品。', category: 'resort' },
+                    { src: './images/RoomOutside_20261001-1.jpg', title: '中庭椰林露天泳池', desc: '棕櫚樹環繞的晶瑩泳池與舒壓躺椅。', category: 'resort' },
+                    { src: './images/RoomOutside_20261001-2.jpg', title: '客房中庭庭園景觀', desc: '盡情享受泰北陽光與悠閒渡假氛圍。', category: 'resort' },
+
+                    { src: './images/Breakfast_20261001-1.jpg', title: '景觀餐廳用餐區', desc: '採光明亮，用餐同時盡攬中庭綠意景致。', category: 'dining' },
+                    { src: './images/Breakfast_20261001-2.jpg', title: '豐盛熱食自助吧', desc: '現煮泰式美味、熱騰騰粥品與多國佳餚。', category: 'dining' },
+                    { src: './images/Breakfast_20261001-3.jpg', title: '新鮮熱帶水果與飲料吧', desc: '提供多元選擇，補充揮桿活力。', category: 'dining' },
+                    { src: './images/Breakfast_20261001-4.jpg', title: '尊榮餐飲服務', desc: '親切熱情服務，打造美味高爾夫早晨。', category: 'dining' },
+
+                    { src: './images/GolfToolArea_20261001-1.jpg', title: '專業出包房服務區', desc: '專人協助球箱管理與球袋整理擦拭。', category: 'facilities' },
+                    { src: './images/GolfToolArea_20261001-2.jpg', title: '球具整備與保管區', desc: '井然有序的專業球具放置空間。', category: 'facilities' },
+                    { src: './images/GolfCar_20261001-1.jpg', title: '電動高爾夫球車隊', desc: '保養完備的高爾夫球車整齊排列。', category: 'facilities' },
+                    { src: './images/IMG_20260930_170901.jpg', title: '渡假村服務資訊牌', desc: '實地拍攝官方資訊與服務電話。', category: 'facilities' }
+                ],
+                get filteredImages() {
+                    if (this.activeFilter === 'all') return this.images;
+                    return this.images.filter(img => img.category === this.activeFilter);
+                },
+                openModal(src, title, desc) {
+                    this.modalImg = src;
+                    this.modalTitle = title;
+                    this.modalDesc = desc;
+                    this.modalOpen = true;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
